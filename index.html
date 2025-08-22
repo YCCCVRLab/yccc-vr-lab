@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Extended Reality @ YCCC</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Landing Page -->
-    <div id="landing" class="landing-page">
-        <!-- Animated Background -->
-        <canvas id="bg-canvas" class="background-canvas"></canvas>
+    <!-- Geometric Background Elements -->
+    <div class="rectangle"></div>
+    <div class="slashes" style="top:6.4rem;right:6rem">////////</div>
+    <div class="slashes" style="bottom:4rem;left:4.2rem">////////</div>
+    <div class="pluses">+++</div>
+    <div class="horizontal" style="top:3.4rem"></div>
+    <div class="vertical" style="left:1.9rem"></div>
+    <div class="vertical" style="right:1.9rem"></div>
+    <div class="vertical" style="right:3.1rem"></div>
+    <div class="horizontal" style="bottom:4.6rem"></div>
+    <div class="horizontal" style="bottom:2rem"></div>
+    <div class="framing" style="top:2.1rem;left:1.9rem"></div>
+    <div class="framingHorizontal" style="top:2.1rem;left:1.9rem"></div>
+    <div class="framing" style="top:7.4rem;right:1.4rem"></div>
+    <div class="framing" style="bottom:2rem;right:1.9rem"></div>
+    
+    <!-- Barcode -->
+    <div class="barcodeWrapper">
+        <div class="barcode"></div>
+        <div class="barcode"></div>
+        <div class="barcode"></div>
+        <div class="barcode"></div>
+        <div class="barcode"></div>
+        <div class="barcode"></div>
+    </div>
+    
+    <!-- Floating Squares -->
+    <div class="squares" style="top:20em;left:10em"></div>
+    <div class="squares" style="bottom:15em;left:14em"></div>
+    <div class="squares" style="bottom:17em;right:9em"></div>
+    <div class="squares" style="top:13em;right:16em"></div>
+    <div class="squares" style="top:19em;right:26em"></div>
+    <div class="squares" style="bottom:17em;left:25em"></div>
+    
+    <!-- Main Content -->
+    <div class="mainWrapper">
+        <span>
+            <div class="logo">XR</div>
+        </span>
+        <span>
+            <h1>Extended Reality @ YCCC</h1>
+        </span>
+        <div class="tag">
+            <p>Reality is fearless.</p>
+            <section>
+                <p class="redUnderline">
+                    <a href="/home/" id="enter-dreamscape">Enter the Hawkverse →</a>
+                </p>
+            </section>
+        </div>
         
-        <!-- Main Content -->
-        <div class="landing-content">
-            <!-- Large Triangle with XR Logo -->
-            <div class="triangle-container">
-                <div class="triangle">
-                    <div class="triangle-content">
-                        <div class="xr-logo">XR</div>
-                        <div class="triangle-text">
-                            <div class="extended-text">Extended Reality @</div>
-                            <div class="berkeley-text">YCCC</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bottom Text and Button -->
-            <div class="landing-bottom">
-                <p class="tagline">Reality is fearless.</p>
-                <button id="enter-btn" class="enter-button">Enter the Hawkverse →</button>
-            </div>
+        <!-- Animated Triangles -->
+        <div class="triangle">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpolygon points='200,50 50,350 350,350' fill='none' stroke='%2300ffff' stroke-width='2'/%3E%3C/svg%3E" alt="blue triangle">
+        </div>
+        <div class="triangle triangleRed">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpolygon points='200,50 50,350 350,350' fill='none' stroke='%23ff2a6d' stroke-width='2'/%3E%3C/svg%3E" alt="red triangle">
         </div>
     </div>
 
-    <!-- Main Website -->
+    <!-- Main Website (Hidden Initially) -->
     <div id="main-site" class="main-site" style="display: none;">
-        <!-- Navigation -->
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
@@ -53,9 +85,7 @@
             </div>
         </nav>
 
-        <!-- Main Content -->
         <main class="main-content">
-            <!-- Hero Section -->
             <section id="home" class="hero-section">
                 <div class="hero-container">
                     <div class="hero-text">
@@ -75,7 +105,6 @@
                 </div>
             </section>
 
-            <!-- Events Section -->
             <section id="events" class="events-section">
                 <div class="section-container">
                     <h2>Info Sessions are currently <span class="status-open">open</span>.</h2>
@@ -96,7 +125,6 @@
                 </div>
             </section>
 
-            <!-- AR Experience Section -->
             <section id="ar-section" class="ar-section">
                 <div class="section-container">
                     <h2>🚀 AR Experience</h2>
@@ -112,25 +140,9 @@
                         <canvas id="ar-overlay"></canvas>
                         <div id="ar-status" class="ar-status"></div>
                     </div>
-                    
-                    <div class="ar-features">
-                        <div class="feature-card">
-                            <h3>🎯 OCR Detection</h3>
-                            <p>Scan Room 112 signs around campus</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>👤 Face Recognition</h3>
-                            <p>Interactive face detection with AR overlays</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>🔍 Campus Hunt</h3>
-                            <p>Find AR elements hidden around YCCC</p>
-                        </div>
-                    </div>
                 </div>
             </section>
 
-            <!-- Lab Info Section -->
             <section id="lab-info" class="lab-section">
                 <div class="section-container">
                     <h2>🏢 VR Lab Information</h2>
@@ -148,21 +160,6 @@
                             <p>Meta Quest 3 Headsets<br>VR Development Stations<br>AR Testing Devices</p>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- Additional Sections -->
-            <section class="grow-section">
-                <div class="section-container">
-                    <h2>🌱 Grow the change.</h2>
-                    <p>Check out our <a href="#" class="link-highlight">project teams →</a></p>
-                </div>
-            </section>
-
-            <section class="help-section">
-                <div class="section-container">
-                    <h2>🤝 Help us change.</h2>
-                    <p>Become a <a href="#" class="link-highlight">sponsor →</a></p>
                 </div>
             </section>
 
