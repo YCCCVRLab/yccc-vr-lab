@@ -34,31 +34,32 @@ function initializeEventListeners() {
         fullscreenBtn.addEventListener('click', toggleFullscreen);
     }
 
-    // Calendar buttons
+    // Calendar buttons - Updated for Outlook
     const cal1Btn = document.getElementById('cal-1-btn');
     const cal2Btn = document.getElementById('cal-2-btn');
     
     if (cal1Btn) {
-        cal1Btn.addEventListener('click', () => addToCalendar('2025-09-03', 'YCCC VR Lab Info Session 1'));
+        cal1Btn.addEventListener('click', () => addToOutlookCalendar('2025-09-03', 'YCCC VR Lab Info Session 1'));
     }
     
     if (cal2Btn) {
-        cal2Btn.addEventListener('click', () => addToCalendar('2025-09-04', 'YCCC VR Lab Info Session 2'));
+        cal2Btn.addEventListener('click', () => addToOutlookCalendar('2025-09-04', 'YCCC VR Lab Info Session 2'));
     }
 
-    // Contact buttons
+    // Contact buttons - Updated
     const hearBtn = document.getElementById('hear-btn');
-    const talkBtn = document.getElementById('talk-btn');
+    const visitBtn = document.getElementById('visit-btn');
     
     if (hearBtn) {
         hearBtn.addEventListener('click', () => {
-            window.open('mailto:vrlab@yccc.edu?subject=VR Lab Interest&body=Hi! I\'m interested in learning more about the YCCC VR Lab.', '_blank');
+            window.open('mailto:vrlab@yccc.edu?subject=VR Lab Interest&body=Hi! I\'m interested in learning more about the YCCC VR Lab and would like to schedule a visit or demo.', '_blank');
         });
     }
     
-    if (talkBtn) {
-        talkBtn.addEventListener('click', () => {
-            window.open('https://discord.gg/hlai', '_blank');
+    if (visitBtn) {
+        visitBtn.addEventListener('click', () => {
+            // Open Google Maps to YCCC Wells Campus
+            window.open('https://maps.google.com?q=York+County+Community+College+Wells+Campus+Room+112', '_blank');
         });
     }
 
@@ -119,7 +120,7 @@ function enterMainSite() {
     }, 1000);
 }
 
-// AR Functionality
+// AR Functionality with improved Room 112 detection
 async function toggleAR() {
     if (!arActive) {
         await startAR();
@@ -164,16 +165,16 @@ async function startAR() {
             arOverlay.width = cameraVideo.videoWidth;
             arOverlay.height = cameraVideo.videoHeight;
             startAROverlay();
+            startTextDetection();
         });
         
         // Show status
-        arStatus.textContent = '🎯 AR Camera Active - Point at Room 112 sign or your face!';
+        arStatus.textContent = '🎯 AR Camera Active - Point at text containing "Room 112" or "112"!';
         arStatus.style.borderColor = 'var(--blue)';
         arStatus.style.color = 'var(--blue)';
         
-        // Simulate detections
+        // Start face detection demo
         setTimeout(simulateFaceDetection, 3000);
-        setTimeout(simulateOCRDetection, 6000);
         
     } catch (error) {
         console.error('Camera access error:', error);
@@ -240,10 +241,15 @@ function startAROverlay() {
         ctx.lineTo(centerX, centerY + size);
         ctx.stroke();
         
-        // Draw YCCC branding
+        // Draw YCCC VR Lab branding
         ctx.fillStyle = `rgba(160, 255, 227, ${0.8 + 0.2 * Math.sin(time * 2)})`;
         ctx.font = 'bold 24px Arial';
         ctx.fillText('YCCC VR LAB', 20, 40);
+        
+        // Draw scanning instructions
+        ctx.fillStyle = `rgba(224, 255, 79, ${0.6 + 0.2 * Math.sin(time * 1.5)})`;
+        ctx.font = '16px Arial';
+        ctx.fillText('Point camera at "Room 112" text', 20, canvas.height - 20);
         
         requestAnimationFrame(drawOverlay);
     }
@@ -251,35 +257,58 @@ function startAROverlay() {
     drawOverlay();
 }
 
+// Improved text detection simulation
+function startTextDetection() {
+    let detectionTimeout;
+    
+    function checkForText() {
+        if (!arActive) return;
+        
+        // Simulate text detection - in a real implementation, you would use OCR
+        // This is a simplified simulation that triggers after a delay
+        detectionTimeout = setTimeout(() => {
+            if (arActive) {
+                simulateRoom112Detection();
+            }
+        }, 5000 + Math.random() * 3000); // Random delay between 5-8 seconds
+    }
+    
+    checkForText();
+}
+
+function simulateRoom112Detection() {
+    if (!arActive) return;
+    
+    const arStatus = document.getElementById('ar-status');
+    const canvas = document.getElementById('ar-overlay');
+    const ctx = canvas.getContext('2d');
+    
+    // Update status
+    arStatus.textContent = '🎯 "Room 112" detected! VR Lab found! 🏆';
+    arStatus.style.borderColor = 'var(--yellow)';
+    arStatus.style.color = 'var(--yellow)';
+    
+    // Draw detection box
+    setTimeout(() => {
+        if (arActive) {
+            ctx.strokeStyle = 'var(--yellow)';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(canvas.width * 0.2, canvas.height * 0.4, canvas.width * 0.6, canvas.height * 0.2);
+            
+            ctx.fillStyle = 'var(--yellow)';
+            ctx.font = 'bold 20px Arial';
+            ctx.fillText('ROOM 112 DETECTED!', canvas.width * 0.25, canvas.height * 0.52);
+        }
+    }, 500);
+}
+
 function simulateFaceDetection() {
     if (!arActive) return;
     
     const arStatus = document.getElementById('ar-status');
-    arStatus.textContent = '👤 Face detected! Welcome to the Hawkverse! 🚀';
-    arStatus.style.borderColor = 'var(--yellow)';
-    arStatus.style.color = 'var(--yellow)';
-}
-
-function simulateOCRDetection() {
-    if (!arActive) return;
-    
-    const arStatus = document.getElementById('ar-status');
-    
-    setTimeout(() => {
-        if (arActive) {
-            arStatus.textContent = '🔍 Scanning for Room 112 sign...';
-            arStatus.style.borderColor = 'var(--purple)';
-            arStatus.style.color = 'var(--purple)';
-        }
-    }, 2000);
-    
-    setTimeout(() => {
-        if (arActive) {
-            arStatus.textContent = '🎯 Room 112 detected! You found the VR Lab! 🏆';
-            arStatus.style.borderColor = 'var(--red)';
-            arStatus.style.color = 'var(--red)';
-        }
-    }, 4000);
+    arStatus.textContent = '👤 Face detected! Welcome to the YCCC VR Lab! 🚀';
+    arStatus.style.borderColor = 'var(--purple)';
+    arStatus.style.color = 'var(--purple)';
 }
 
 // Fullscreen functionality
@@ -335,18 +364,48 @@ function handleFullscreenChange() {
     }
 }
 
-// Calendar functionality
-function addToCalendar(date, title) {
+// Outlook Calendar functionality
+function addToOutlookCalendar(date, title) {
     const startDate = new Date(date + 'T12:00:00');
     const endDate = new Date(date + 'T13:30:00');
     
-    const formatDate = (date) => {
+    const formatOutlookDate = (date) => {
         return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     };
     
-    const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${encodeURIComponent('YCCC VR Lab Info Session - Room 112, Wells Campus. Come learn about Extended Reality!')}&location=${encodeURIComponent('Room 112, Wells Campus, YCCC')}`;
+    // Create Outlook calendar URL
+    const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&startdt=${formatOutlookDate(startDate)}&enddt=${formatOutlookDate(endDate)}&body=${encodeURIComponent('YCCC VR Lab Info Session - Come explore virtual reality with our Meta Quest 3 headsets! Learn about VR technology and opportunities in our lab.')}&location=${encodeURIComponent('Room 112, Wells Campus, York County Community College, 112 College Drive, Wells, ME 04090')}`;
     
-    window.open(calendarUrl, '_blank');
+    // Also create an ICS file for universal calendar support
+    const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//YCCC VR Lab//EN
+BEGIN:VEVENT
+UID:${Date.now()}@yccc.edu
+DTSTAMP:${formatOutlookDate(new Date())}
+DTSTART:${formatOutlookDate(startDate)}
+DTEND:${formatOutlookDate(endDate)}
+SUMMARY:${title}
+DESCRIPTION:YCCC VR Lab Info Session - Come explore virtual reality with our Meta Quest 3 headsets! Learn about VR technology and opportunities in our lab.
+LOCATION:Room 112, Wells Campus, York County Community College, 112 College Drive, Wells, ME 04090
+END:VEVENT
+END:VCALENDAR`;
+
+    // Try Outlook first, then fallback to ICS download
+    try {
+        window.open(outlookUrl, '_blank');
+    } catch (error) {
+        // Fallback: download ICS file
+        const blob = new Blob([icsContent], { type: 'text/calendar' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${title.replace(/\s+/g, '_')}.ics`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }
 }
 
 // Keyboard shortcuts
