@@ -1,0 +1,43 @@
+# GitHub Pages Configuration for YCCC VR Lab
+title: "YCCC VR Lab - Extended Reality Club"
+description: "Extended Reality Club at York County Community College - Enter the Hawkverse"
+url: "https://ycccrlab.github.io"
+baseurl: "/yccc-vr-lab"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+
+# Include files
+include:
+  - _headers
+
+# SEO and social
+author: "John C. Barr - YCCC VR Lab"
+twitter:
+  username: ycccrlab
+social:
+  name: YCCC VR Lab
+  links:
+    - https://github.com/YCCCVRLab
+
+# Collections
+collections:
+  events:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
