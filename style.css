@@ -175,29 +175,49 @@ a {
     justify-content: center;
 }
 
+.logo-container {
+    position: relative;
+    z-index: 10;
+}
+
 .logo {
     filter: drop-shadow(-8px -4px var(--blue)) drop-shadow(8px 4px var(--red));
     height: 7rem;
     width: 7rem;
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: HYShortSamul, sans-serif;
+    position: relative;
+    z-index: 10;
 }
 
 .mainWrapper h1 {
     margin-top: 8px;
     text-shadow: 2px 1px var(--red), -2px -1px var(--blue);
+    position: relative;
+    z-index: 10;
 }
 
 .tag {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     margin-top: 2rem;
     z-index: 999;
+    position: relative;
+}
+
+.tagline-text {
+    margin-bottom: 1.5rem;
+    font-size: 16px;
+}
+
+.enter-section {
+    margin-top: 0.5rem;
 }
 
 .redUnderline {
@@ -215,25 +235,36 @@ a {
     box-shadow: 0 0 0 2px var(--yellow);
 }
 
-/* Triangles */
-.triangle img {
-    animation: rotation 6s linear infinite;
-    left: 20%;
+/* Triangles - Fixed rotation */
+.triangle {
     position: absolute;
-    top: -38%;
-    transform-origin: 44% 40%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.triangle img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     width: 300px;
     height: 300px;
+    transform: translate(-50%, -50%);
+    animation: rotation 6s linear infinite;
 }
 
 .triangleRed img {
-    left: 21%;
-    top: -37%;
+    width: 310px;
+    height: 310px;
+    animation-direction: reverse;
+    animation-duration: 8s;
 }
 
 @keyframes rotation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Main Site Styles */
@@ -273,12 +304,12 @@ a {
     font-weight: bold;
 }
 
-.vr-text {
+.yccc-text {
     color: var(--blue);
     text-shadow: 0 0 10px var(--blue);
 }
 
-.xr-text {
+.vr-text {
     color: var(--purple);
     text-shadow: 0 0 10px var(--purple);
 }
@@ -362,10 +393,22 @@ a {
     margin-bottom: 2rem;
 }
 
-.headset-img {
-    max-width: 100%;
+.headset-placeholder {
+    background: linear-gradient(135deg, var(--purple-transparent), var(--blue-transparent));
+    border: 2px solid var(--blue);
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.headset-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.headset-placeholder p {
+    color: var(--blue);
+    font-weight: bold;
 }
 
 .hero-buttons {
@@ -517,6 +560,37 @@ a {
     color: var(--blue);
 }
 
+.ar-instructions {
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--purple-transparent);
+}
+
+.ar-instructions h3 {
+    color: var(--purple);
+    margin-bottom: 1rem;
+    font-family: HYShortSamul, sans-serif;
+}
+
+.ar-instructions ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.ar-instructions li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.ar-instructions li::before {
+    content: "→";
+    color: var(--purple);
+    position: absolute;
+    left: -1rem;
+}
+
 /* Lab Section */
 .lab-section {
     padding: 4rem 0;
@@ -546,19 +620,44 @@ a {
     font-family: HYShortSamul, sans-serif;
 }
 
-/* Discord Section */
-.discord-section {
+/* About Section */
+.about-section {
+    padding: 4rem 0;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--blue-transparent);
+}
+
+.feature-item h3 {
+    color: var(--blue);
+    margin-bottom: 1rem;
+    font-family: HYShortSamul, sans-serif;
+}
+
+/* Contact Section */
+.contact-section {
     padding: 3rem 0;
 }
 
-.discord-link {
+.contact-link {
     color: var(--blue);
     border-bottom: 2px solid var(--blue);
     padding-bottom: 2px;
     transition: all 0.3s ease;
 }
 
-.discord-link:hover {
+.contact-link:hover {
     color: var(--purple);
     border-bottom-color: var(--purple);
     text-shadow: 0 0 5px var(--purple);
@@ -595,5 +694,15 @@ a {
     
     .section-container {
         padding: 0 1rem;
+    }
+    
+    .triangle img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .triangleRed img {
+        width: 260px;
+        height: 260px;
     }
 }
