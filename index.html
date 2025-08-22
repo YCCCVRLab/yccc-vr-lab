@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Extended Reality @ YCCC</title>
+    <title>YCCC VR Lab - Extended Reality</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -45,16 +45,18 @@
     <!-- Main Content -->
     <div class="mainWrapper">
         <span>
-            <div class="logo">XR</div>
+            <div class="logo-container">
+                <div class="logo">YCCC VR</div>
+            </div>
         </span>
         <span>
             <h1>Extended Reality @ YCCC</h1>
         </span>
         <div class="tag">
-            <p>Reality is fearless.</p>
-            <section>
+            <p class="tagline-text">Reality is fearless.</p>
+            <section class="enter-section">
                 <p class="redUnderline">
-                    <a href="/home/" id="enter-dreamscape">Enter the Hawkverse →</a>
+                    <a href="#" id="enter-dreamscape">Enter the Hawkverse →</a>
                 </p>
             </section>
         </div>
@@ -73,14 +75,14 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <span class="vr-text">VR</span><span class="xr-text">XR</span>
+                    <span class="yccc-text">YCCC</span><span class="vr-text">VR</span>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">Who we are</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#events" class="nav-link">Events</a></li>
-                    <li><a href="#discord" class="nav-link">Discord</a></li>
+                    <li><a href="#lab-info" class="nav-link">Lab Info</a></li>
+                    <li><a href="#ar-section" class="nav-link">AR Experience</a></li>
                 </ul>
             </div>
         </nav>
@@ -89,17 +91,20 @@
             <section id="home" class="hero-section">
                 <div class="hero-container">
                     <div class="hero-text">
-                        <h1>Welcome to Extended Reality @ YCCC.</h1>
-                        <p>We seek to foster an inclusive and diverse community of YCCC students, industry, and academia to increase public awareness of virtual reality (VR) and augmented reality (AR).</p>
-                        <p>We provide developer resources and training, and promote dialogue about the impact and implications of immersive computing. Our members receive training in cutting edge technology, develop on the newest VR platforms, and explore the intersection of physical and virtual space.</p>
+                        <h1>Welcome to the YCCC VR Lab!</h1>
+                        <p>Our space is equipped with 10 Meta Quest 3 headsets, offering immersive experiences and tools for a wide range of applications. Whether you're a seasoned VR enthusiast or new to the world of virtual reality, our lab has something for everyone.</p>
+                        <p>We provide hands-on training, educational resources, and collaborative opportunities to explore the cutting-edge world of virtual and augmented reality technologies.</p>
                     </div>
                     <div class="hero-image">
                         <div class="headset-container">
-                            <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=400&h=300&fit=crop" alt="VR Headset" class="headset-img">
+                            <div class="headset-placeholder">
+                                <div class="headset-icon">🥽</div>
+                                <p>Meta Quest 3</p>
+                            </div>
                         </div>
                         <div class="hero-buttons">
-                            <button class="btn btn-primary" id="hear-btn">Hear from us 📧</button>
-                            <button class="btn btn-secondary" id="talk-btn">Talk to us 💬</button>
+                            <button class="btn btn-primary" id="hear-btn">Contact Us 📧</button>
+                            <button class="btn btn-secondary" id="visit-btn">Visit Lab 📍</button>
                         </div>
                     </div>
                 </div>
@@ -108,19 +113,15 @@
             <section id="events" class="events-section">
                 <div class="section-container">
                     <h2>Info Sessions are currently <span class="status-open">open</span>.</h2>
-                    <p>We will be holding 2 information sessions where you can learn more about our club and chat with our members:</p>
+                    <p>We will be holding 2 information sessions where you can learn more about our VR Lab and experience our equipment:</p>
                     <ul class="event-list">
-                        <li>• Info Session 1: 9/3 (Wed) 12:00-1:30pm @ Room 112</li>
-                        <li>• Info Session 2: 9/4 (Thu) 12:00-1:30pm @ Room 112</li>
+                        <li>• Info Session 1: September 3rd (Wed) 12:00-1:30pm @ Room 112, Wells Campus</li>
+                        <li>• Info Session 2: September 4th (Thu) 12:00-1:30pm @ Room 112, Wells Campus</li>
                     </ul>
-                    <p>More information can also be found on our application forms:</p>
+                    <p>Come explore virtual reality, try our Meta Quest 3 headsets, and learn about opportunities in our lab!</p>
                     <div class="button-group">
-                        <button class="btn btn-outline" id="club-app-btn">Club Application</button>
-                        <button class="btn btn-outline" id="meet-app-btn">Meet Application</button>
-                    </div>
-                    <div class="button-group">
-                        <button class="btn btn-calendar" id="cal-1-btn">Add Sept 3rd to Calendar</button>
-                        <button class="btn btn-calendar" id="cal-2-btn">Add Sept 4th to Calendar</button>
+                        <button class="btn btn-calendar" id="cal-1-btn">Add Sept 3rd to Outlook</button>
+                        <button class="btn btn-calendar" id="cal-2-btn">Add Sept 4th to Outlook</button>
                     </div>
                 </div>
             </section>
@@ -128,7 +129,7 @@
             <section id="ar-section" class="ar-section">
                 <div class="section-container">
                     <h2>🚀 AR Experience</h2>
-                    <p>Experience cutting-edge Augmented Reality! Use your camera to scan for Room 112 or detect faces for interactive AR overlays.</p>
+                    <p>Experience cutting-edge Augmented Reality! Use your camera to scan for Room 112 signs around campus or try our face detection demo.</p>
                     
                     <div class="ar-controls">
                         <button class="btn btn-ar" id="start-ar-btn">Start AR Camera</button>
@@ -140,6 +141,16 @@
                         <canvas id="ar-overlay"></canvas>
                         <div id="ar-status" class="ar-status"></div>
                     </div>
+                    
+                    <div class="ar-instructions">
+                        <h3>How to use AR:</h3>
+                        <ul>
+                            <li>Click "Start AR Camera" to begin</li>
+                            <li>Point your camera at text that says "Room 112" or "112"</li>
+                            <li>The system will detect and highlight the text</li>
+                            <li>Try pointing at your face for face detection demo</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
@@ -149,7 +160,7 @@
                     <div class="lab-grid">
                         <div class="lab-card">
                             <h3>📍 Location</h3>
-                            <p>Room 112, Wells Campus<br>York County Community College</p>
+                            <p>Room 112, Wells Campus<br>York County Community College<br>112 College Drive, Wells, ME</p>
                         </div>
                         <div class="lab-card">
                             <h3>🕐 Hours</h3>
@@ -157,16 +168,41 @@
                         </div>
                         <div class="lab-card">
                             <h3>🎮 Equipment</h3>
-                            <p>Meta Quest 3 Headsets<br>VR Development Stations<br>AR Testing Devices</p>
+                            <p>10 Meta Quest 3 Headsets<br>VR Development Stations<br>Immersive Learning Tools<br>Training Resources</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="discord-section">
+            <section id="about" class="about-section">
                 <div class="section-container">
-                    <h2>💬 Or, join our Discord to learn more.</h2>
-                    <a href="https://discord.gg/hlai" target="_blank" class="discord-link">Join Discord →</a>
+                    <h2>About Our VR Lab</h2>
+                    <p>The YCCC VR Lab is a state-of-the-art facility designed to provide students and community members with access to cutting-edge virtual reality technology. Our lab serves as a hub for learning, experimentation, and innovation in the field of extended reality.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <h3>🎓 Educational Focus</h3>
+                            <p>Supporting curriculum across multiple disciplines with immersive learning experiences</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>🔬 Research & Development</h3>
+                            <p>Exploring new applications of VR/AR technology in education and industry</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>🤝 Community Access</h3>
+                            <p>Open to students, faculty, and community members interested in VR technology</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-section">
+                <div class="section-container">
+                    <h2>📧 Contact Information</h2>
+                    <p>Questions about the VR Lab? Want to schedule a visit or demo?</p>
+                    <p><strong>Email:</strong> <a href="mailto:vrlab@yccc.edu" class="contact-link">vrlab@yccc.edu</a></p>
+                    <p><strong>Phone:</strong> (207) 216-4300</p>
+                    <p><strong>Location:</strong> Room 112, Wells Campus, YCCC</p>
                 </div>
             </section>
         </main>
