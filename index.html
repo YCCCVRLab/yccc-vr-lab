@@ -3,216 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YCCC VR Lab - Extended Reality Club</title>
+    <title>Extended Reality @ YCCC</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Extended Reality Club at York County Community College - Fearlessly Designed Reality">
 </head>
 <body>
-    <!-- Landing Page - Berkeley XR Style -->
-    <div id="landing-page" class="landing-container">
-        <!-- Background Grid -->
-        <div class="grid-background"></div>
+    <!-- Landing Page -->
+    <div id="landing" class="landing-page">
+        <!-- Animated Background -->
+        <canvas id="bg-canvas" class="background-canvas"></canvas>
         
-        <!-- Floating Plus Signs -->
-        <div class="plus-signs">
-            <div class="plus plus-1">+</div>
-            <div class="plus plus-2">+</div>
-            <div class="plus plus-3">+</div>
-            <div class="plus plus-4">+</div>
-            <div class="plus plus-5">+</div>
-            <div class="plus plus-6">+</div>
-        </div>
-        
-        <!-- Diagonal Lines -->
-        <div class="diagonal-lines">
-            <div class="diagonal-line line-1"></div>
-            <div class="diagonal-line line-2"></div>
-            <div class="diagonal-line line-3"></div>
-            <div class="diagonal-line line-4"></div>
-            <div class="diagonal-line line-5"></div>
-            <div class="diagonal-line line-6"></div>
-            <div class="diagonal-line line-7"></div>
-            <div class="diagonal-line line-8"></div>
-        </div>
-        
-        <!-- Floating Squares -->
-        <div class="floating-squares">
-            <div class="square square-1"></div>
-            <div class="square square-2"></div>
-            <div class="square square-3"></div>
-            <div class="square square-4"></div>
-            <div class="square square-5"></div>
-            <div class="square square-6"></div>
-        </div>
-        
-        <!-- Main Triangle and Content -->
-        <div class="main-content">
-            <!-- Large Triangle Container -->
+        <!-- Main Content -->
+        <div class="landing-content">
+            <!-- Large Triangle with XR Logo -->
             <div class="triangle-container">
-                <div class="triangle-border">
-                    <div class="triangle-inner">
-                        <!-- XR Logo inside triangle -->
-                        <div class="xr-logo">
-                            <span class="x-letter">X</span>
-                            <span class="r-letter">R</span>
-                        </div>
-                        <!-- Text below logo -->
+                <div class="triangle">
+                    <div class="triangle-content">
+                        <div class="xr-logo">XR</div>
                         <div class="triangle-text">
                             <div class="extended-text">Extended Reality @</div>
-                            <div class="yccc-text">YCCC</div>
+                            <div class="berkeley-text">YCCC</div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Bottom Text -->
-            <div class="bottom-text">
-                <p class="tagline">Reality is fearlessly designed.</p>
-                <button id="enter-hawkverse" class="enter-button">
-                    Enter the Hawkverse →
-                </button>
+            <!-- Bottom Text and Button -->
+            <div class="landing-bottom">
+                <p class="tagline">Reality is fearless.</p>
+                <button id="enter-btn" class="enter-button">Enter the Hawkverse →</button>
             </div>
-        </div>
-        
-        <!-- Bottom Grid Lines -->
-        <div class="bottom-grid-lines">
-            <div class="bottom-line"></div>
-            <div class="bottom-line"></div>
-            <div class="bottom-line"></div>
-            <div class="bottom-line"></div>
-            <div class="bottom-line"></div>
         </div>
     </div>
 
     <!-- Main Website -->
-    <div id="main-website" class="main-container" style="display: none;">
-        <header>
-            <nav>
+    <div id="main-site" class="main-site" style="display: none;">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
                 <div class="nav-logo">
-                    <span class="vr-text">VR</span>
-                    <span class="xr-text">XR</span>
+                    <span class="vr-text">VR</span><span class="xr-text">XR</span>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#who-we-are">Who we are</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#social">Social</a></li>
-                    <li><a href="#discord">Discord</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">Who we are</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#events" class="nav-link">Events</a></li>
+                    <li><a href="#discord" class="nav-link">Discord</a></li>
                 </ul>
-            </nav>
-        </header>
+            </div>
+        </nav>
 
-        <main>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
             <section id="home" class="hero-section">
-                <div class="hero-content">
+                <div class="hero-container">
                     <div class="hero-text">
                         <h1>Welcome to Extended Reality @ YCCC.</h1>
                         <p>We seek to foster an inclusive and diverse community of YCCC students, industry, and academia to increase public awareness of virtual reality (VR) and augmented reality (AR).</p>
                         <p>We provide developer resources and training, and promote dialogue about the impact and implications of immersive computing. Our members receive training in cutting edge technology, develop on the newest VR platforms, and explore the intersection of physical and virtual space.</p>
                     </div>
                     <div class="hero-image">
-                        <div class="vr-headset-container">
-                            <div class="headset-glow"></div>
-                            <img src="https://via.placeholder.com/400x300/1a1a2e/00ffff?text=Meta+Quest+3" alt="VR Headset">
+                        <div class="headset-container">
+                            <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=400&h=300&fit=crop" alt="VR Headset" class="headset-img">
                         </div>
                         <div class="hero-buttons">
-                            <button class="btn-primary" id="hear-from-us">Hear from us 📧</button>
-                            <button class="btn-secondary" id="talk-to-us">Talk to us 💬</button>
+                            <button class="btn btn-primary" id="hear-btn">Hear from us 📧</button>
+                            <button class="btn btn-secondary" id="talk-btn">Talk to us 💬</button>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Events Section -->
             <section id="events" class="events-section">
-                <h2>Info Sessions are currently <span class="status-open">open</span>.</h2>
-                <p>We will be holding 2 information sessions where you can learn more about our club and chat with our members:</p>
-                <ul class="event-list">
-                    <li>• Info Session 1: 9/3 (Wed) 12:00-1:30pm @ Room 112</li>
-                    <li>• Info Session 2: 9/4 (Thu) 12:00-1:30pm @ Room 112</li>
-                </ul>
-                <p>More information can also be found on our application forms:</p>
-                <div class="application-buttons">
-                    <button class="app-btn" id="club-application">Club Application</button>
-                    <button class="app-btn" id="meet-application">Meet Application</button>
-                </div>
-                <div class="calendar-buttons">
-                    <button class="calendar-btn" id="add-session-1">Add Sept 3rd to Calendar</button>
-                    <button class="calendar-btn" id="add-session-2">Add Sept 4th to Calendar</button>
-                </div>
-            </section>
-
-            <section id="ar-experience" class="ar-section">
-                <h2>🚀 AR Experience</h2>
-                <p>Experience cutting-edge Augmented Reality! Use your camera to scan for Room 112 or detect faces for interactive AR overlays.</p>
-                
-                <div class="ar-controls">
-                    <button id="start-ar" class="ar-btn">Start AR Camera</button>
-                    <button id="toggle-fullscreen" class="ar-btn">Fullscreen Mode</button>
-                </div>
-                
-                <div class="camera-container">
-                    <video id="camera-feed" autoplay playsinline style="display:none;"></video>
-                    <canvas id="ar-canvas" style="display:none;"></canvas>
-                    <div id="ar-status" class="ar-status"></div>
-                </div>
-                
-                <div class="ar-features">
-                    <div class="feature">
-                        <h3>🎯 OCR Detection</h3>
-                        <p>Scan Room 112 signs around campus</p>
+                <div class="section-container">
+                    <h2>Info Sessions are currently <span class="status-open">open</span>.</h2>
+                    <p>We will be holding 2 information sessions where you can learn more about our club and chat with our members:</p>
+                    <ul class="event-list">
+                        <li>• Info Session 1: 9/3 (Wed) 12:00-1:30pm @ Room 112</li>
+                        <li>• Info Session 2: 9/4 (Thu) 12:00-1:30pm @ Room 112</li>
+                    </ul>
+                    <p>More information can also be found on our application forms:</p>
+                    <div class="button-group">
+                        <button class="btn btn-outline" id="club-app-btn">Club Application</button>
+                        <button class="btn btn-outline" id="meet-app-btn">Meet Application</button>
                     </div>
-                    <div class="feature">
-                        <h3>👤 Face Recognition</h3>
-                        <p>Interactive face detection with AR overlays</p>
-                    </div>
-                    <div class="feature">
-                        <h3>🔍 Campus Hunt</h3>
-                        <p>Find AR elements hidden around YCCC</p>
+                    <div class="button-group">
+                        <button class="btn btn-calendar" id="cal-1-btn">Add Sept 3rd to Calendar</button>
+                        <button class="btn btn-calendar" id="cal-2-btn">Add Sept 4th to Calendar</button>
                     </div>
                 </div>
             </section>
 
+            <!-- AR Experience Section -->
+            <section id="ar-section" class="ar-section">
+                <div class="section-container">
+                    <h2>🚀 AR Experience</h2>
+                    <p>Experience cutting-edge Augmented Reality! Use your camera to scan for Room 112 or detect faces for interactive AR overlays.</p>
+                    
+                    <div class="ar-controls">
+                        <button class="btn btn-ar" id="start-ar-btn">Start AR Camera</button>
+                        <button class="btn btn-ar" id="fullscreen-btn">Fullscreen Mode</button>
+                    </div>
+                    
+                    <div class="camera-container" id="camera-container" style="display: none;">
+                        <video id="camera-video" autoplay playsinline muted></video>
+                        <canvas id="ar-overlay"></canvas>
+                        <div id="ar-status" class="ar-status"></div>
+                    </div>
+                    
+                    <div class="ar-features">
+                        <div class="feature-card">
+                            <h3>🎯 OCR Detection</h3>
+                            <p>Scan Room 112 signs around campus</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>👤 Face Recognition</h3>
+                            <p>Interactive face detection with AR overlays</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🔍 Campus Hunt</h3>
+                            <p>Find AR elements hidden around YCCC</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lab Info Section -->
             <section id="lab-info" class="lab-section">
-                <h2>🏢 VR Lab Information</h2>
-                <div class="lab-details">
-                    <div class="lab-card">
-                        <h3>📍 Location</h3>
-                        <p>Room 112, Wells Campus<br>York County Community College</p>
-                    </div>
-                    <div class="lab-card">
-                        <h3>🕐 Hours</h3>
-                        <p>Monday - Friday<br>8:00 AM - 4:30 PM<br><em>(When lights are on and door is open)</em></p>
-                    </div>
-                    <div class="lab-card">
-                        <h3>🎮 Equipment</h3>
-                        <p>Meta Quest 3 Headsets<br>VR Development Stations<br>AR Testing Devices</p>
+                <div class="section-container">
+                    <h2>🏢 VR Lab Information</h2>
+                    <div class="lab-grid">
+                        <div class="lab-card">
+                            <h3>📍 Location</h3>
+                            <p>Room 112, Wells Campus<br>York County Community College</p>
+                        </div>
+                        <div class="lab-card">
+                            <h3>🕐 Hours</h3>
+                            <p>Monday - Friday<br>8:00 AM - 4:30 PM<br><em>(When lights are on and door is open)</em></p>
+                        </div>
+                        <div class="lab-card">
+                            <h3>🎮 Equipment</h3>
+                            <p>Meta Quest 3 Headsets<br>VR Development Stations<br>AR Testing Devices</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section id="grow-the-change" class="grow-section">
-                <h2>🌱 Grow the change.</h2>
-                <p>Check out our <a href="#" class="link-highlight">project teams →</a></p>
+            <!-- Additional Sections -->
+            <section class="grow-section">
+                <div class="section-container">
+                    <h2>🌱 Grow the change.</h2>
+                    <p>Check out our <a href="#" class="link-highlight">project teams →</a></p>
+                </div>
             </section>
 
-            <section id="help-us-change" class="help-section">
-                <h2>🤝 Help us change.</h2>
-                <p>Become a <a href="#" class="link-highlight">sponsor →</a></p>
+            <section class="help-section">
+                <div class="section-container">
+                    <h2>🤝 Help us change.</h2>
+                    <p>Become a <a href="#" class="link-highlight">sponsor →</a></p>
+                </div>
             </section>
 
-            <section id="open-your-mind" class="mind-section">
-                <h2>🧠 Open your mind.</h2>
-                <p>Check out our <a href="#" class="link-highlight">Reach →</a></p>
-            </section>
-
-            <section id="become-the-best" class="best-section">
-                <h2>⭐ Become the best.</h2>
-                <p>Join us in <a href="#" class="link-highlight">Collegiate VR Esports →</a></p>
-            </section>
-
-            <section id="join-discord" class="discord-section">
-                <h2>💬 Or, join our Discord to learn more.</h2>
-                <a href="https://discord.gg/hlai" target="_blank" class="discord-link">Join Discord →</a>
+            <section class="discord-section">
+                <div class="section-container">
+                    <h2>💬 Or, join our Discord to learn more.</h2>
+                    <a href="https://discord.gg/hlai" target="_blank" class="discord-link">Join Discord →</a>
+                </div>
             </section>
         </main>
     </div>
